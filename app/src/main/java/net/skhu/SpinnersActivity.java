@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.AdapterView;
 
 public class SpinnersActivity extends AppCompatActivity {
 
@@ -40,6 +41,18 @@ public class SpinnersActivity extends AppCompatActivity {
         };
         Button button = (Button) findViewById(R.id.btnSave);
         button.setOnClickListener(listener1);
+
+        AdapterView.OnItemSelectedListener listener2 = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id){
+                Toast.makeText(SpinnersActivity.this, stringArray[position],Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent){
+
+            }
+        };
+        spinner.setOnItemSelectedListener(listener2);
     }
 
 }
